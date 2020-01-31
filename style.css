@@ -85,3 +85,9 @@ a:hover {
     display: block;
     margin-right: 10em;
 }
+
+@media screen and (max-width: 600px) {
+    .applyMargin {     
+        margin: 0 0 0 0;
+    }
+}
