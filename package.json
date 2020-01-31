@@ -1,0 +1,26 @@
+{
+  "name": "mango-website",
+  "version": "1.0.0",
+  "description": "The Mango discord bot official website",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Mazz3015#0001",
+  "license": "MIT",
+  "dependencies": {
+    "animate.css": "^3.7.2",
+    "discord.js": "^11.5.1",
+    "particles.js": "^2.0.0"
+  },
+  "devDependencies": {},
+  "keywords": [
+    "Mazz3015",
+    "ma15fo43",
+    "Mango",
+    "Mango",
+    "bot",
+    "mango",
+    "website"
+  ]
+}
