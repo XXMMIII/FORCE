@@ -36169,7 +36169,7 @@ const Client = new Discord.Client();
 const Token = require("./utilities.js");
 
 Client.on("ready", () => {
-    Client.user.setActivity("oh");
+    Client.user.setStatus('offline');
     console.log(Client.user.username);
     document.getElementById("usersNumber").innerHTML = `<i class="fas fa-check-square"></i> ${Client.users.size} users... and counting!`;
     document.getElementById("serversNumber").innerHTML = `<i class="fas fa-check-square"></i> ${Client.guilds.size} guilds... and counting!`;
@@ -36178,6 +36178,7 @@ Client.on("ready", () => {
 });
 
 Client.login(Token.token);
+
 },{"./utilities.js":216,"discord.js":160}],216:[function(require,module,exports){
 module.exports.token = "NDk3NDQzMTQ0NjMyMjM4MDkw.XjRlRQ.fBQ25kJzijShNS7rHq7y6YpgY9o";
 },{}]},{},[215]);
