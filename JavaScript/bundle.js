@@ -14416,22 +14416,40 @@ arguments[4][4][0].apply(exports,arguments)
 },{"dup":4}],56:[function(require,module,exports){
 arguments[4][5][0].apply(exports,arguments)
 },{"./support/isBuffer":55,"_process":32,"dup":5,"inherits":54}],57:[function(require,module,exports){
+const Discord = require("discord.js");
+const Client = new Discord.Client();
+const Token = require("./utilities.js");
+
+Client.on("ready", () => {
+    Client.user.setStatus('invisible');
+    console.log(Client.user.username);
+    document.getElementById("usersNumber").innerHTML = `<i class="fas fa-check-square"></i> ${Client.users.size} users... and counting!`;
+    document.getElementById("serversNumber").innerHTML = `<i class="fas fa-check-square"></i> ${Client.guilds.size} guilds... and counting!`;
+    document.getElementById("channelsNumber").innerHTML = `<i class="fas fa-check-square"></i> ${Client.channels.size} channels... and counting!`;
+    document.getElementById("emojisNumber").innerHTML = `<i class="fas fa-check-square"></i> ${Client.emojis.size} emojis... and counting!`;
+});
+
+Client.login(Token.token);
+
+},{"./utilities.js":58,"discord.js":162}],58:[function(require,module,exports){
+module.exports.token = "NDk3NDQzMTQ0NjMyMjM4MDkw.XjWBkg.QGZS19SUhJZtOn-MoLc3Ke6VJAE";
+},{}],59:[function(require,module,exports){
 module.exports={
-  "_from": "discord.js",
+  "_from": "discord.js@^11.5.1",
   "_id": "discord.js@11.5.1",
   "_inBundle": false,
   "_integrity": "sha512-tGhV5xaZXE3Z+4uXJb3hYM6gQ1NmnSxp9PClcsSAYFVRzH6AJH74040mO3afPDMWEAlj8XsoPXXTJHTxesqcGw==",
   "_location": "/discord.js",
   "_phantomChildren": {},
   "_requested": {
-    "type": "tag",
+    "type": "range",
     "registry": true,
-    "raw": "discord.js",
+    "raw": "discord.js@^11.5.1",
     "name": "discord.js",
     "escapedName": "discord.js",
-    "rawSpec": "",
+    "rawSpec": "^11.5.1",
     "saveSpec": null,
-    "fetchSpec": "latest"
+    "fetchSpec": "^11.5.1"
   },
   "_requiredBy": [
     "#USER",
@@ -14439,7 +14457,7 @@ module.exports={
   ],
   "_resolved": "https://registry.npmjs.org/discord.js/-/discord.js-11.5.1.tgz",
   "_shasum": "910fb9f6410328581093e044cafb661783a4d9e8",
-  "_spec": "discord.js",
+  "_spec": "discord.js@^11.5.1",
   "_where": "E:\\Documents\\Autre\\Code\\HTML\\Mango",
   "author": {
     "name": "Amish Shah",
@@ -14567,7 +14585,7 @@ module.exports={
   "version": "11.5.1"
 }
 
-},{}],58:[function(require,module,exports){
+},{}],60:[function(require,module,exports){
 (function (process){
 const EventEmitter = require('events');
 const Constants = require('../util/Constants');
@@ -15135,7 +15153,7 @@ module.exports = Client;
  */
 
 }).call(this,require('_process'))
-},{"../sharding/ShardClientUtil":162,"../structures/Presence":190,"../util/Collection":206,"../util/Constants":207,"../util/Permissions":208,"../util/Util":210,"./ClientDataManager":59,"./ClientDataResolver":60,"./ClientManager":61,"./actions/ActionsManager":64,"./rest/RESTManager":95,"./voice/ClientVoiceManager":101,"./voice/VoiceBroadcast":102,"./websocket/WebSocketManager":118,"_process":32,"events":12}],59:[function(require,module,exports){
+},{"../sharding/ShardClientUtil":164,"../structures/Presence":192,"../util/Collection":208,"../util/Constants":209,"../util/Permissions":210,"../util/Util":212,"./ClientDataManager":61,"./ClientDataResolver":62,"./ClientManager":63,"./actions/ActionsManager":66,"./rest/RESTManager":97,"./voice/ClientVoiceManager":103,"./voice/VoiceBroadcast":104,"./websocket/WebSocketManager":120,"_process":32,"events":12}],61:[function(require,module,exports){
 const Constants = require('../util/Constants');
 const Util = require('../util/Util');
 const Guild = require('../structures/Guild');
@@ -15286,7 +15304,7 @@ class ClientDataManager {
 
 module.exports = ClientDataManager;
 
-},{"../structures/CategoryChannel":165,"../structures/DMChannel":171,"../structures/Emoji":172,"../structures/GroupDMChannel":173,"../structures/Guild":174,"../structures/GuildChannel":176,"../structures/NewsChannel":185,"../structures/StoreChannel":195,"../structures/TextChannel":196,"../structures/User":197,"../structures/VoiceChannel":200,"../util/Constants":207,"../util/Util":210}],60:[function(require,module,exports){
+},{"../structures/CategoryChannel":167,"../structures/DMChannel":173,"../structures/Emoji":174,"../structures/GroupDMChannel":175,"../structures/Guild":176,"../structures/GuildChannel":178,"../structures/NewsChannel":187,"../structures/StoreChannel":197,"../structures/TextChannel":198,"../structures/User":199,"../structures/VoiceChannel":202,"../util/Constants":209,"../util/Util":212}],62:[function(require,module,exports){
 (function (Buffer){
 const path = require('path');
 const fs = require('fs');
@@ -15666,7 +15684,7 @@ class ClientDataResolver {
 module.exports = ClientDataResolver;
 
 }).call(this,require("buffer").Buffer)
-},{"../structures/Channel":166,"../structures/Emoji":172,"../structures/Guild":174,"../structures/GuildMember":177,"../structures/Message":179,"../structures/ReactionEmoji":192,"../structures/Role":194,"../structures/User":197,"../util/Constants":207,"../util/Util":210,"buffer":10,"fs":1,"path":30,"snekfetch":212}],61:[function(require,module,exports){
+},{"../structures/Channel":168,"../structures/Emoji":174,"../structures/Guild":176,"../structures/GuildMember":179,"../structures/Message":181,"../structures/ReactionEmoji":194,"../structures/Role":196,"../structures/User":199,"../util/Constants":209,"../util/Util":212,"buffer":10,"fs":1,"path":30,"snekfetch":214}],63:[function(require,module,exports){
 const Constants = require('../util/Constants');
 const WebSocketConnection = require('./websocket/WebSocketConnection');
 
@@ -15742,7 +15760,7 @@ class ClientManager {
 
 module.exports = ClientManager;
 
-},{"../util/Constants":207,"./websocket/WebSocketConnection":117}],62:[function(require,module,exports){
+},{"../util/Constants":209,"./websocket/WebSocketConnection":119}],64:[function(require,module,exports){
 const Webhook = require('../structures/Webhook');
 const RESTManager = require('./rest/RESTManager');
 const ClientDataResolver = require('./ClientDataResolver');
@@ -15862,7 +15880,7 @@ class WebhookClient extends Webhook {
 
 module.exports = WebhookClient;
 
-},{"../structures/Webhook":202,"../util/Constants":207,"../util/Util":210,"./ClientDataResolver":60,"./rest/RESTManager":95}],63:[function(require,module,exports){
+},{"../structures/Webhook":204,"../util/Constants":209,"../util/Util":212,"./ClientDataResolver":62,"./rest/RESTManager":97}],65:[function(require,module,exports){
 /*
 
 ABOUT ACTIONS
@@ -15887,7 +15905,7 @@ class GenericAction {
 
 module.exports = GenericAction;
 
-},{}],64:[function(require,module,exports){
+},{}],66:[function(require,module,exports){
 class ActionsManager {
   constructor(client) {
     this.client = client;
@@ -15929,7 +15947,7 @@ class ActionsManager {
 
 module.exports = ActionsManager;
 
-},{"./ChannelCreate":65,"./ChannelDelete":66,"./ChannelUpdate":67,"./GuildBanRemove":68,"./GuildChannelsPositionUpdate":69,"./GuildDelete":70,"./GuildEmojiCreate":71,"./GuildEmojiDelete":72,"./GuildEmojiUpdate":73,"./GuildEmojisUpdate":74,"./GuildMemberGet":75,"./GuildMemberRemove":76,"./GuildRoleCreate":77,"./GuildRoleDelete":78,"./GuildRoleUpdate":79,"./GuildRolesPositionUpdate":80,"./GuildSync":81,"./GuildUpdate":82,"./MessageCreate":83,"./MessageDelete":84,"./MessageDeleteBulk":85,"./MessageReactionAdd":86,"./MessageReactionRemove":87,"./MessageReactionRemoveAll":88,"./MessageUpdate":89,"./UserGet":90,"./UserNoteUpdate":91,"./UserUpdate":92}],65:[function(require,module,exports){
+},{"./ChannelCreate":67,"./ChannelDelete":68,"./ChannelUpdate":69,"./GuildBanRemove":70,"./GuildChannelsPositionUpdate":71,"./GuildDelete":72,"./GuildEmojiCreate":73,"./GuildEmojiDelete":74,"./GuildEmojiUpdate":75,"./GuildEmojisUpdate":76,"./GuildMemberGet":77,"./GuildMemberRemove":78,"./GuildRoleCreate":79,"./GuildRoleDelete":80,"./GuildRoleUpdate":81,"./GuildRolesPositionUpdate":82,"./GuildSync":83,"./GuildUpdate":84,"./MessageCreate":85,"./MessageDelete":86,"./MessageDeleteBulk":87,"./MessageReactionAdd":88,"./MessageReactionRemove":89,"./MessageReactionRemoveAll":90,"./MessageUpdate":91,"./UserGet":92,"./UserNoteUpdate":93,"./UserUpdate":94}],67:[function(require,module,exports){
 const Action = require('./Action');
 
 class ChannelCreateAction extends Action {
@@ -15942,7 +15960,7 @@ class ChannelCreateAction extends Action {
 
 module.exports = ChannelCreateAction;
 
-},{"./Action":63}],66:[function(require,module,exports){
+},{"./Action":65}],68:[function(require,module,exports){
 const Action = require('./Action');
 
 class ChannelDeleteAction extends Action {
@@ -15974,7 +15992,7 @@ class ChannelDeleteAction extends Action {
 
 module.exports = ChannelDeleteAction;
 
-},{"./Action":63}],67:[function(require,module,exports){
+},{"./Action":65}],69:[function(require,module,exports){
 const Action = require('./Action');
 const TextChannel = require('../../structures/TextChannel');
 const VoiceChannel = require('../../structures/VoiceChannel');
@@ -16050,7 +16068,7 @@ class ChannelUpdateAction extends Action {
 
 module.exports = ChannelUpdateAction;
 
-},{"../../structures/CategoryChannel":165,"../../structures/NewsChannel":185,"../../structures/StoreChannel":195,"../../structures/TextChannel":196,"../../structures/VoiceChannel":200,"../../util/Constants":207,"../../util/Util":210,"./Action":63}],68:[function(require,module,exports){
+},{"../../structures/CategoryChannel":167,"../../structures/NewsChannel":187,"../../structures/StoreChannel":197,"../../structures/TextChannel":198,"../../structures/VoiceChannel":202,"../../util/Constants":209,"../../util/Util":212,"./Action":65}],70:[function(require,module,exports){
 const Action = require('./Action');
 const Constants = require('../../util/Constants');
 
@@ -16065,7 +16083,7 @@ class GuildBanRemove extends Action {
 
 module.exports = GuildBanRemove;
 
-},{"../../util/Constants":207,"./Action":63}],69:[function(require,module,exports){
+},{"../../util/Constants":209,"./Action":65}],71:[function(require,module,exports){
 const Action = require('./Action');
 
 class GuildChannelsPositionUpdate extends Action {
@@ -16086,7 +16104,7 @@ class GuildChannelsPositionUpdate extends Action {
 
 module.exports = GuildChannelsPositionUpdate;
 
-},{"./Action":63}],70:[function(require,module,exports){
+},{"./Action":65}],72:[function(require,module,exports){
 const Action = require('./Action');
 const Constants = require('../../util/Constants');
 
@@ -16145,7 +16163,7 @@ class GuildDeleteAction extends Action {
 
 module.exports = GuildDeleteAction;
 
-},{"../../util/Constants":207,"./Action":63}],71:[function(require,module,exports){
+},{"../../util/Constants":209,"./Action":65}],73:[function(require,module,exports){
 const Action = require('./Action');
 
 class GuildEmojiCreateAction extends Action {
@@ -16164,7 +16182,7 @@ class GuildEmojiCreateAction extends Action {
 
 module.exports = GuildEmojiCreateAction;
 
-},{"./Action":63}],72:[function(require,module,exports){
+},{"./Action":65}],74:[function(require,module,exports){
 const Action = require('./Action');
 
 class GuildEmojiDeleteAction extends Action {
@@ -16184,7 +16202,7 @@ class GuildEmojiDeleteAction extends Action {
 
 module.exports = GuildEmojiDeleteAction;
 
-},{"./Action":63}],73:[function(require,module,exports){
+},{"./Action":65}],75:[function(require,module,exports){
 const Action = require('./Action');
 
 class GuildEmojiUpdateAction extends Action {
@@ -16203,7 +16221,7 @@ class GuildEmojiUpdateAction extends Action {
 
 module.exports = GuildEmojiUpdateAction;
 
-},{"./Action":63}],74:[function(require,module,exports){
+},{"./Action":65}],76:[function(require,module,exports){
 const Action = require('./Action');
 
 function mappify(iterable) {
@@ -16243,7 +16261,7 @@ class GuildEmojisUpdateAction extends Action {
 
 module.exports = GuildEmojisUpdateAction;
 
-},{"./Action":63}],75:[function(require,module,exports){
+},{"./Action":65}],77:[function(require,module,exports){
 const Action = require('./Action');
 
 class GuildMemberGetAction extends Action {
@@ -16255,7 +16273,7 @@ class GuildMemberGetAction extends Action {
 
 module.exports = GuildMemberGetAction;
 
-},{"./Action":63}],76:[function(require,module,exports){
+},{"./Action":65}],78:[function(require,module,exports){
 const Action = require('./Action');
 const Constants = require('../../util/Constants');
 
@@ -16298,7 +16316,7 @@ class GuildMemberRemoveAction extends Action {
 
 module.exports = GuildMemberRemoveAction;
 
-},{"../../util/Constants":207,"./Action":63}],77:[function(require,module,exports){
+},{"../../util/Constants":209,"./Action":65}],79:[function(require,module,exports){
 const Action = require('./Action');
 const Constants = require('../../util/Constants');
 const Role = require('../../structures/Role');
@@ -16326,7 +16344,7 @@ class GuildRoleCreate extends Action {
 
 module.exports = GuildRoleCreate;
 
-},{"../../structures/Role":194,"../../util/Constants":207,"./Action":63}],78:[function(require,module,exports){
+},{"../../structures/Role":196,"../../util/Constants":209,"./Action":65}],80:[function(require,module,exports){
 const Action = require('./Action');
 const Constants = require('../../util/Constants');
 
@@ -16370,7 +16388,7 @@ class GuildRoleDeleteAction extends Action {
 
 module.exports = GuildRoleDeleteAction;
 
-},{"../../util/Constants":207,"./Action":63}],79:[function(require,module,exports){
+},{"../../util/Constants":209,"./Action":65}],81:[function(require,module,exports){
 const Action = require('./Action');
 const Constants = require('../../util/Constants');
 const Util = require('../../util/Util');
@@ -16413,7 +16431,7 @@ class GuildRoleUpdateAction extends Action {
 
 module.exports = GuildRoleUpdateAction;
 
-},{"../../util/Constants":207,"../../util/Util":210,"./Action":63}],80:[function(require,module,exports){
+},{"../../util/Constants":209,"../../util/Util":212,"./Action":65}],82:[function(require,module,exports){
 const Action = require('./Action');
 
 class GuildRolesPositionUpdate extends Action {
@@ -16434,7 +16452,7 @@ class GuildRolesPositionUpdate extends Action {
 
 module.exports = GuildRolesPositionUpdate;
 
-},{"./Action":63}],81:[function(require,module,exports){
+},{"./Action":65}],83:[function(require,module,exports){
 const Action = require('./Action');
 
 class GuildSync extends Action {
@@ -16465,7 +16483,7 @@ class GuildSync extends Action {
 
 module.exports = GuildSync;
 
-},{"./Action":63}],82:[function(require,module,exports){
+},{"./Action":65}],84:[function(require,module,exports){
 const Action = require('./Action');
 const Constants = require('../../util/Constants');
 const Util = require('../../util/Util');
@@ -16501,7 +16519,7 @@ class GuildUpdateAction extends Action {
 
 module.exports = GuildUpdateAction;
 
-},{"../../util/Constants":207,"../../util/Util":210,"./Action":63}],83:[function(require,module,exports){
+},{"../../util/Constants":209,"../../util/Util":212,"./Action":65}],85:[function(require,module,exports){
 const Action = require('./Action');
 const Message = require('../../structures/Message');
 
@@ -16556,7 +16574,7 @@ class MessageCreateAction extends Action {
 
 module.exports = MessageCreateAction;
 
-},{"../../structures/Message":179,"./Action":63}],84:[function(require,module,exports){
+},{"../../structures/Message":181,"./Action":65}],86:[function(require,module,exports){
 const Action = require('./Action');
 
 class MessageDeleteAction extends Action {
@@ -16593,7 +16611,7 @@ class MessageDeleteAction extends Action {
 
 module.exports = MessageDeleteAction;
 
-},{"./Action":63}],85:[function(require,module,exports){
+},{"./Action":65}],87:[function(require,module,exports){
 const Action = require('./Action');
 const Collection = require('../../util/Collection');
 const Constants = require('../../util/Constants');
@@ -16621,7 +16639,7 @@ class MessageDeleteBulkAction extends Action {
 
 module.exports = MessageDeleteBulkAction;
 
-},{"../../util/Collection":206,"../../util/Constants":207,"./Action":63}],86:[function(require,module,exports){
+},{"../../util/Collection":208,"../../util/Constants":209,"./Action":65}],88:[function(require,module,exports){
 const Action = require('./Action');
 const Constants = require('../../util/Constants');
 
@@ -16660,7 +16678,7 @@ class MessageReactionAdd extends Action {
 
 module.exports = MessageReactionAdd;
 
-},{"../../util/Constants":207,"./Action":63}],87:[function(require,module,exports){
+},{"../../util/Constants":209,"./Action":65}],89:[function(require,module,exports){
 const Action = require('./Action');
 const Constants = require('../../util/Constants');
 
@@ -16699,7 +16717,7 @@ class MessageReactionRemove extends Action {
 
 module.exports = MessageReactionRemove;
 
-},{"../../util/Constants":207,"./Action":63}],88:[function(require,module,exports){
+},{"../../util/Constants":209,"./Action":65}],90:[function(require,module,exports){
 const Action = require('./Action');
 const Constants = require('../../util/Constants');
 
@@ -16726,7 +16744,7 @@ class MessageReactionRemoveAll extends Action {
 
 module.exports = MessageReactionRemoveAll;
 
-},{"../../util/Constants":207,"./Action":63}],89:[function(require,module,exports){
+},{"../../util/Constants":209,"./Action":65}],91:[function(require,module,exports){
 const Action = require('./Action');
 const Constants = require('../../util/Constants');
 
@@ -16768,7 +16786,7 @@ class MessageUpdateAction extends Action {
 
 module.exports = MessageUpdateAction;
 
-},{"../../util/Constants":207,"./Action":63}],90:[function(require,module,exports){
+},{"../../util/Constants":209,"./Action":65}],92:[function(require,module,exports){
 const Action = require('./Action');
 
 class UserGetAction extends Action {
@@ -16781,7 +16799,7 @@ class UserGetAction extends Action {
 
 module.exports = UserGetAction;
 
-},{"./Action":63}],91:[function(require,module,exports){
+},{"./Action":65}],93:[function(require,module,exports){
 const Action = require('./Action');
 const Constants = require('../../util/Constants');
 
@@ -16813,7 +16831,7 @@ class UserNoteUpdateAction extends Action {
 
 module.exports = UserNoteUpdateAction;
 
-},{"../../util/Constants":207,"./Action":63}],92:[function(require,module,exports){
+},{"../../util/Constants":209,"./Action":65}],94:[function(require,module,exports){
 const Action = require('./Action');
 const Constants = require('../../util/Constants');
 const Util = require('../../util/Util');
@@ -16848,7 +16866,7 @@ class UserUpdateAction extends Action {
 
 module.exports = UserUpdateAction;
 
-},{"../../util/Constants":207,"../../util/Util":210,"./Action":63}],93:[function(require,module,exports){
+},{"../../util/Constants":209,"../../util/Util":212,"./Action":65}],95:[function(require,module,exports){
 const snekfetch = require('snekfetch');
 const Constants = require('../../util/Constants');
 
@@ -16902,7 +16920,7 @@ class APIRequest {
 
 module.exports = APIRequest;
 
-},{"../../util/Constants":207,"snekfetch":212}],94:[function(require,module,exports){
+},{"../../util/Constants":209,"snekfetch":214}],96:[function(require,module,exports){
 /**
  * Represents an error from the Discord API.
  * @extends Error
@@ -16964,7 +16982,7 @@ class DiscordAPIError extends Error {
 
 module.exports = DiscordAPIError;
 
-},{}],95:[function(require,module,exports){
+},{}],97:[function(require,module,exports){
 const UserAgentManager = require('./UserAgentManager');
 const RESTMethods = require('./RESTMethods');
 const SequentialRequestHandler = require('./RequestHandlers/Sequential');
@@ -17024,7 +17042,7 @@ class RESTManager {
 
 module.exports = RESTManager;
 
-},{"../../util/Constants":207,"./APIRequest":93,"./RESTMethods":96,"./RequestHandlers/Burst":97,"./RequestHandlers/Sequential":99,"./UserAgentManager":100}],96:[function(require,module,exports){
+},{"../../util/Constants":209,"./APIRequest":95,"./RESTMethods":98,"./RequestHandlers/Burst":99,"./RequestHandlers/Sequential":101,"./UserAgentManager":102}],98:[function(require,module,exports){
 const querystring = require('querystring');
 const long = require('long');
 const Permissions = require('../../util/Permissions');
@@ -18032,7 +18050,7 @@ class RESTMethods {
 
 module.exports = RESTMethods;
 
-},{"../../structures/Channel":166,"../../structures/GroupDMChannel":173,"../../structures/Guild":174,"../../structures/GuildAuditLogs":175,"../../structures/GuildMember":177,"../../structures/Invite":178,"../../structures/Message":179,"../../structures/OAuth2Application":186,"../../structures/RichEmbed":193,"../../structures/Role":194,"../../structures/User":197,"../../structures/UserProfile":199,"../../structures/VoiceRegion":201,"../../structures/Webhook":202,"../../structures/shared/resolvePermissions":205,"../../util/Collection":206,"../../util/Constants":207,"../../util/Permissions":208,"../../util/Util":210,"long":211,"querystring":35}],97:[function(require,module,exports){
+},{"../../structures/Channel":168,"../../structures/GroupDMChannel":175,"../../structures/Guild":176,"../../structures/GuildAuditLogs":177,"../../structures/GuildMember":179,"../../structures/Invite":180,"../../structures/Message":181,"../../structures/OAuth2Application":188,"../../structures/RichEmbed":195,"../../structures/Role":196,"../../structures/User":199,"../../structures/UserProfile":201,"../../structures/VoiceRegion":203,"../../structures/Webhook":204,"../../structures/shared/resolvePermissions":207,"../../util/Collection":208,"../../util/Constants":209,"../../util/Permissions":210,"../../util/Util":212,"long":213,"querystring":35}],99:[function(require,module,exports){
 const RequestHandler = require('./RequestHandler');
 const DiscordAPIError = require('../DiscordAPIError');
 const { Events: { RATE_LIMIT } } = require('../../../util/Constants');
@@ -18124,7 +18142,7 @@ class BurstRequestHandler extends RequestHandler {
 
 module.exports = BurstRequestHandler;
 
-},{"../../../util/Constants":207,"../DiscordAPIError":94,"./RequestHandler":98}],98:[function(require,module,exports){
+},{"../../../util/Constants":209,"../DiscordAPIError":96,"./RequestHandler":100}],100:[function(require,module,exports){
 /**
  * A base class for different types of rate limiting handlers for the REST API.
  * @private
@@ -18180,7 +18198,7 @@ class RequestHandler {
 
 module.exports = RequestHandler;
 
-},{}],99:[function(require,module,exports){
+},{}],101:[function(require,module,exports){
 const RequestHandler = require('./RequestHandler');
 const DiscordAPIError = require('../DiscordAPIError');
 const { Events: { RATE_LIMIT } } = require('../../../util/Constants');
@@ -18314,7 +18332,7 @@ class SequentialRequestHandler extends RequestHandler {
 
 module.exports = SequentialRequestHandler;
 
-},{"../../../util/Constants":207,"../DiscordAPIError":94,"./RequestHandler":98}],100:[function(require,module,exports){
+},{"../../../util/Constants":209,"../DiscordAPIError":96,"./RequestHandler":100}],102:[function(require,module,exports){
 (function (process){
 const Constants = require('../../util/Constants');
 
@@ -18343,7 +18361,7 @@ UserAgentManager.DEFAULT = {
 module.exports = UserAgentManager;
 
 }).call(this,require('_process'))
-},{"../../util/Constants":207,"_process":32}],101:[function(require,module,exports){
+},{"../../util/Constants":209,"_process":32}],103:[function(require,module,exports){
 const Collection = require('../../util/Collection');
 const VoiceConnection = require('./VoiceConnection');
 
@@ -18426,7 +18444,7 @@ class ClientVoiceManager {
 
 module.exports = ClientVoiceManager;
 
-},{"../../util/Collection":206,"./VoiceConnection":103}],102:[function(require,module,exports){
+},{"../../util/Collection":208,"./VoiceConnection":105}],104:[function(require,module,exports){
 (function (Buffer){
 const VolumeInterface = require('./util/VolumeInterface');
 const Prism = require('prism-media');
@@ -18796,7 +18814,7 @@ class VoiceBroadcast extends VolumeInterface {
 module.exports = VoiceBroadcast;
 
 }).call(this,require("buffer").Buffer)
-},{"../../util/Collection":206,"./opus/OpusEngineList":109,"./util/VolumeInterface":116,"buffer":10,"prism-media":7}],103:[function(require,module,exports){
+},{"../../util/Collection":208,"./opus/OpusEngineList":111,"./util/VolumeInterface":118,"buffer":10,"prism-media":7}],105:[function(require,module,exports){
 const VoiceWebSocket = require('./VoiceWebSocket');
 const VoiceUDP = require('./VoiceUDPClient');
 const Util = require('../../util/Util');
@@ -19328,7 +19346,7 @@ class VoiceConnection extends EventEmitter {
 
 module.exports = VoiceConnection;
 
-},{"../../util/Constants":207,"../../util/Util":210,"./VoiceUDPClient":104,"./VoiceWebSocket":105,"./player/AudioPlayer":111,"./receiver/VoiceReceiver":113,"events":12,"prism-media":7}],104:[function(require,module,exports){
+},{"../../util/Constants":209,"../../util/Util":212,"./VoiceUDPClient":106,"./VoiceWebSocket":107,"./player/AudioPlayer":113,"./receiver/VoiceReceiver":115,"events":12,"prism-media":7}],106:[function(require,module,exports){
 (function (Buffer){
 const udp = require('dgram');
 const Constants = require('../../util/Constants');
@@ -19459,7 +19477,7 @@ function parseLocalPacket(message) {
 module.exports = VoiceConnectionUDPClient;
 
 }).call(this,require("buffer").Buffer)
-},{"../../util/Constants":207,"buffer":10,"dgram":1,"events":12}],105:[function(require,module,exports){
+},{"../../util/Constants":209,"buffer":10,"dgram":1,"events":12}],107:[function(require,module,exports){
 const Constants = require('../../util/Constants');
 const SecretKey = require('./util/SecretKey');
 const EventEmitter = require('events').EventEmitter;
@@ -19707,7 +19725,7 @@ class VoiceWebSocket extends EventEmitter {
 
 module.exports = VoiceWebSocket;
 
-},{"../../util/Constants":207,"./util/SecretKey":114,"@discordjs/uws":7,"events":12,"ws":7}],106:[function(require,module,exports){
+},{"../../util/Constants":209,"./util/SecretKey":116,"@discordjs/uws":7,"events":12,"ws":7}],108:[function(require,module,exports){
 (function (Buffer){
 const VolumeInterface = require('../util/VolumeInterface');
 const VoiceBroadcast = require('../VoiceBroadcast');
@@ -20042,7 +20060,7 @@ class StreamDispatcher extends VolumeInterface {
 module.exports = StreamDispatcher;
 
 }).call(this,require("buffer").Buffer)
-},{"../../../util/Constants":207,"../VoiceBroadcast":102,"../util/Secretbox":115,"../util/VolumeInterface":116,"buffer":10}],107:[function(require,module,exports){
+},{"../../../util/Constants":209,"../VoiceBroadcast":104,"../util/Secretbox":117,"../util/VolumeInterface":118,"buffer":10}],109:[function(require,module,exports){
 /**
  * The base opus encoding engine.
  * @private
@@ -20104,7 +20122,7 @@ class BaseOpus {
 
 module.exports = BaseOpus;
 
-},{}],108:[function(require,module,exports){
+},{}],110:[function(require,module,exports){
 const OpusEngine = require('./BaseOpusEngine');
 
 let opus;
@@ -20146,7 +20164,7 @@ class NodeOpusEngine extends OpusEngine {
 
 module.exports = NodeOpusEngine;
 
-},{"./BaseOpusEngine":107,"node-opus":7}],109:[function(require,module,exports){
+},{"./BaseOpusEngine":109,"node-opus":7}],111:[function(require,module,exports){
 const list = [
   require('./NodeOpusEngine'),
   require('./OpusScriptEngine'),
@@ -20176,7 +20194,7 @@ exports.fetch = engineOptions => {
   throw new Error('Couldn\'t find an Opus engine.');
 };
 
-},{"./NodeOpusEngine":108,"./OpusScriptEngine":110}],110:[function(require,module,exports){
+},{"./NodeOpusEngine":110,"./OpusScriptEngine":112}],112:[function(require,module,exports){
 const OpusEngine = require('./BaseOpusEngine');
 
 let OpusScript;
@@ -20223,7 +20241,7 @@ class OpusScriptEngine extends OpusEngine {
 
 module.exports = OpusScriptEngine;
 
-},{"./BaseOpusEngine":107,"opusscript":7}],111:[function(require,module,exports){
+},{"./BaseOpusEngine":109,"opusscript":7}],113:[function(require,module,exports){
 const EventEmitter = require('events').EventEmitter;
 const Prism = require('prism-media');
 const StreamDispatcher = require('../dispatcher/StreamDispatcher');
@@ -20395,7 +20413,7 @@ class AudioPlayer extends EventEmitter {
 
 module.exports = AudioPlayer;
 
-},{"../../../util/Collection":206,"../dispatcher/StreamDispatcher":106,"../opus/OpusEngineList":109,"events":12,"prism-media":7}],112:[function(require,module,exports){
+},{"../../../util/Collection":208,"../dispatcher/StreamDispatcher":108,"../opus/OpusEngineList":111,"events":12,"prism-media":7}],114:[function(require,module,exports){
 const Readable = require('stream').Readable;
 
 class VoiceReadable extends Readable {
@@ -20414,7 +20432,7 @@ class VoiceReadable extends Readable {
 
 module.exports = VoiceReadable;
 
-},{"stream":51}],113:[function(require,module,exports){
+},{"stream":51}],115:[function(require,module,exports){
 (function (Buffer){
 const EventEmitter = require('events').EventEmitter;
 const secretbox = require('../util/Secretbox');
@@ -20637,7 +20655,7 @@ class VoiceReceiver extends EventEmitter {
 module.exports = VoiceReceiver;
 
 }).call(this,require("buffer").Buffer)
-},{"../opus/OpusEngineList":109,"../util/Secretbox":115,"./VoiceReadable":112,"buffer":10,"events":12}],114:[function(require,module,exports){
+},{"../opus/OpusEngineList":111,"../util/Secretbox":117,"./VoiceReadable":114,"buffer":10,"events":12}],116:[function(require,module,exports){
 /**
  * Represents a Secret Key used in encryption over voice.
  * @private
@@ -20655,7 +20673,7 @@ class SecretKey {
 
 module.exports = SecretKey;
 
-},{}],115:[function(require,module,exports){
+},{}],117:[function(require,module,exports){
 const libs = {
   sodium: sodium => ({
     open: sodium.api.crypto_secretbox_open_easy,
@@ -20690,7 +20708,7 @@ for (const libName of Object.keys(libs)) {
   } catch (err) {} // eslint-disable-line no-empty
 }
 
-},{"tweetnacl":7}],116:[function(require,module,exports){
+},{"tweetnacl":7}],118:[function(require,module,exports){
 (function (Buffer){
 const EventEmitter = require('events');
 
@@ -20780,7 +20798,7 @@ class VolumeInterface extends EventEmitter {
 module.exports = VolumeInterface;
 
 }).call(this,require("buffer").Buffer)
-},{"buffer":10,"events":12}],117:[function(require,module,exports){
+},{"buffer":10,"events":12}],119:[function(require,module,exports){
 (function (Buffer){
 const browser = typeof window !== 'undefined';
 const EventEmitter = require('events');
@@ -21290,7 +21308,7 @@ WebSocketConnection.WebSocket = WebSocket;
 module.exports = WebSocketConnection;
 
 }).call(this,require("buffer").Buffer)
-},{"../../util/Constants":207,"./packets/WebSocketPacketManager":119,"@discordjs/uws":7,"buffer":10,"erlpack":7,"events":12,"ws":7,"zlib":9}],118:[function(require,module,exports){
+},{"../../util/Constants":209,"./packets/WebSocketPacketManager":121,"@discordjs/uws":7,"buffer":10,"erlpack":7,"events":12,"ws":7,"zlib":9}],120:[function(require,module,exports){
 const EventEmitter = require('events').EventEmitter;
 const Constants = require('../../util/Constants');
 const WebSocketConnection = require('./WebSocketConnection');
@@ -21382,7 +21400,7 @@ class WebSocketManager extends EventEmitter {
 
 module.exports = WebSocketManager;
 
-},{"../../util/Constants":207,"./WebSocketConnection":117,"events":12}],119:[function(require,module,exports){
+},{"../../util/Constants":209,"./WebSocketConnection":119,"events":12}],121:[function(require,module,exports){
 const Constants = require('../../../util/Constants');
 
 const BeforeReadyWhitelist = [
@@ -21494,7 +21512,7 @@ class WebSocketPacketManager {
 
 module.exports = WebSocketPacketManager;
 
-},{"../../../util/Constants":207,"./handlers/ChannelCreate":121,"./handlers/ChannelDelete":122,"./handlers/ChannelPinsUpdate":123,"./handlers/ChannelUpdate":124,"./handlers/GuildBanAdd":125,"./handlers/GuildBanRemove":126,"./handlers/GuildCreate":127,"./handlers/GuildDelete":128,"./handlers/GuildEmojisUpdate":129,"./handlers/GuildIntegrationsUpdate":130,"./handlers/GuildMemberAdd":131,"./handlers/GuildMemberRemove":132,"./handlers/GuildMemberUpdate":133,"./handlers/GuildMembersChunk":134,"./handlers/GuildRoleCreate":135,"./handlers/GuildRoleDelete":136,"./handlers/GuildRoleUpdate":137,"./handlers/GuildSync":138,"./handlers/GuildUpdate":139,"./handlers/MessageCreate":140,"./handlers/MessageDelete":141,"./handlers/MessageDeleteBulk":142,"./handlers/MessageReactionAdd":143,"./handlers/MessageReactionRemove":144,"./handlers/MessageReactionRemoveAll":145,"./handlers/MessageUpdate":146,"./handlers/PresenceUpdate":147,"./handlers/Ready":148,"./handlers/RelationshipAdd":149,"./handlers/RelationshipRemove":150,"./handlers/Resumed":151,"./handlers/TypingStart":152,"./handlers/UserGuildSettingsUpdate":153,"./handlers/UserNoteUpdate":154,"./handlers/UserSettingsUpdate":155,"./handlers/UserUpdate":156,"./handlers/VoiceServerUpdate":157,"./handlers/VoiceStateUpdate":158,"./handlers/WebhooksUpdate":159}],120:[function(require,module,exports){
+},{"../../../util/Constants":209,"./handlers/ChannelCreate":123,"./handlers/ChannelDelete":124,"./handlers/ChannelPinsUpdate":125,"./handlers/ChannelUpdate":126,"./handlers/GuildBanAdd":127,"./handlers/GuildBanRemove":128,"./handlers/GuildCreate":129,"./handlers/GuildDelete":130,"./handlers/GuildEmojisUpdate":131,"./handlers/GuildIntegrationsUpdate":132,"./handlers/GuildMemberAdd":133,"./handlers/GuildMemberRemove":134,"./handlers/GuildMemberUpdate":135,"./handlers/GuildMembersChunk":136,"./handlers/GuildRoleCreate":137,"./handlers/GuildRoleDelete":138,"./handlers/GuildRoleUpdate":139,"./handlers/GuildSync":140,"./handlers/GuildUpdate":141,"./handlers/MessageCreate":142,"./handlers/MessageDelete":143,"./handlers/MessageDeleteBulk":144,"./handlers/MessageReactionAdd":145,"./handlers/MessageReactionRemove":146,"./handlers/MessageReactionRemoveAll":147,"./handlers/MessageUpdate":148,"./handlers/PresenceUpdate":149,"./handlers/Ready":150,"./handlers/RelationshipAdd":151,"./handlers/RelationshipRemove":152,"./handlers/Resumed":153,"./handlers/TypingStart":154,"./handlers/UserGuildSettingsUpdate":155,"./handlers/UserNoteUpdate":156,"./handlers/UserSettingsUpdate":157,"./handlers/UserUpdate":158,"./handlers/VoiceServerUpdate":159,"./handlers/VoiceStateUpdate":160,"./handlers/WebhooksUpdate":161}],122:[function(require,module,exports){
 class AbstractHandler {
   constructor(packetManager) {
     this.packetManager = packetManager;
@@ -21507,7 +21525,7 @@ class AbstractHandler {
 
 module.exports = AbstractHandler;
 
-},{}],121:[function(require,module,exports){
+},{}],123:[function(require,module,exports){
 const AbstractHandler = require('./AbstractHandler');
 
 class ChannelCreateHandler extends AbstractHandler {
@@ -21526,7 +21544,7 @@ class ChannelCreateHandler extends AbstractHandler {
 
 module.exports = ChannelCreateHandler;
 
-},{"./AbstractHandler":120}],122:[function(require,module,exports){
+},{"./AbstractHandler":122}],124:[function(require,module,exports){
 const AbstractHandler = require('./AbstractHandler');
 
 const Constants = require('../../../../util/Constants');
@@ -21548,7 +21566,7 @@ class ChannelDeleteHandler extends AbstractHandler {
 
 module.exports = ChannelDeleteHandler;
 
-},{"../../../../util/Constants":207,"./AbstractHandler":120}],123:[function(require,module,exports){
+},{"../../../../util/Constants":209,"./AbstractHandler":122}],125:[function(require,module,exports){
 const AbstractHandler = require('./AbstractHandler');
 const Constants = require('../../../../util/Constants');
 
@@ -21587,7 +21605,7 @@ class ChannelPinsUpdate extends AbstractHandler {
 
 module.exports = ChannelPinsUpdate;
 
-},{"../../../../util/Constants":207,"./AbstractHandler":120}],124:[function(require,module,exports){
+},{"../../../../util/Constants":209,"./AbstractHandler":122}],126:[function(require,module,exports){
 const AbstractHandler = require('./AbstractHandler');
 
 class ChannelUpdateHandler extends AbstractHandler {
@@ -21600,7 +21618,7 @@ class ChannelUpdateHandler extends AbstractHandler {
 
 module.exports = ChannelUpdateHandler;
 
-},{"./AbstractHandler":120}],125:[function(require,module,exports){
+},{"./AbstractHandler":122}],127:[function(require,module,exports){
 // ##untested handler##
 
 const AbstractHandler = require('./AbstractHandler');
@@ -21625,7 +21643,7 @@ class GuildBanAddHandler extends AbstractHandler {
 
 module.exports = GuildBanAddHandler;
 
-},{"../../../../util/Constants":207,"./AbstractHandler":120}],126:[function(require,module,exports){
+},{"../../../../util/Constants":209,"./AbstractHandler":122}],128:[function(require,module,exports){
 // ##untested handler##
 
 const AbstractHandler = require('./AbstractHandler');
@@ -21647,7 +21665,7 @@ class GuildBanRemoveHandler extends AbstractHandler {
 
 module.exports = GuildBanRemoveHandler;
 
-},{"./AbstractHandler":120}],127:[function(require,module,exports){
+},{"./AbstractHandler":122}],129:[function(require,module,exports){
 const AbstractHandler = require('./AbstractHandler');
 
 class GuildCreateHandler extends AbstractHandler {
@@ -21671,7 +21689,7 @@ class GuildCreateHandler extends AbstractHandler {
 
 module.exports = GuildCreateHandler;
 
-},{"./AbstractHandler":120}],128:[function(require,module,exports){
+},{"./AbstractHandler":122}],130:[function(require,module,exports){
 const AbstractHandler = require('./AbstractHandler');
 const Constants = require('../../../../util/Constants');
 
@@ -21692,7 +21710,7 @@ class GuildDeleteHandler extends AbstractHandler {
 
 module.exports = GuildDeleteHandler;
 
-},{"../../../../util/Constants":207,"./AbstractHandler":120}],129:[function(require,module,exports){
+},{"../../../../util/Constants":209,"./AbstractHandler":122}],131:[function(require,module,exports){
 const AbstractHandler = require('./AbstractHandler');
 
 class GuildEmojisUpdate extends AbstractHandler {
@@ -21705,7 +21723,7 @@ class GuildEmojisUpdate extends AbstractHandler {
 
 module.exports = GuildEmojisUpdate;
 
-},{"./AbstractHandler":120}],130:[function(require,module,exports){
+},{"./AbstractHandler":122}],132:[function(require,module,exports){
 const AbstractHandler = require('./AbstractHandler');
 const { Events } = require('../../../../util/Constants');
 
@@ -21726,7 +21744,7 @@ module.exports = GuildIntegrationsHandler;
  * @param {Guild} guild The guild whose integrations were updated
  */
 
-},{"../../../../util/Constants":207,"./AbstractHandler":120}],131:[function(require,module,exports){
+},{"../../../../util/Constants":209,"./AbstractHandler":122}],133:[function(require,module,exports){
 // ##untested handler##
 
 const AbstractHandler = require('./AbstractHandler');
@@ -21745,7 +21763,7 @@ class GuildMemberAddHandler extends AbstractHandler {
 
 module.exports = GuildMemberAddHandler;
 
-},{"./AbstractHandler":120}],132:[function(require,module,exports){
+},{"./AbstractHandler":122}],134:[function(require,module,exports){
 // ##untested handler##
 
 const AbstractHandler = require('./AbstractHandler');
@@ -21760,7 +21778,7 @@ class GuildMemberRemoveHandler extends AbstractHandler {
 
 module.exports = GuildMemberRemoveHandler;
 
-},{"./AbstractHandler":120}],133:[function(require,module,exports){
+},{"./AbstractHandler":122}],135:[function(require,module,exports){
 // ##untested handler##
 
 const AbstractHandler = require('./AbstractHandler');
@@ -21780,7 +21798,7 @@ class GuildMemberUpdateHandler extends AbstractHandler {
 
 module.exports = GuildMemberUpdateHandler;
 
-},{"./AbstractHandler":120}],134:[function(require,module,exports){
+},{"./AbstractHandler":122}],136:[function(require,module,exports){
 const AbstractHandler = require('./AbstractHandler');
 const Constants = require('../../../../util/Constants');
 // Uncomment in v12
@@ -21815,7 +21833,7 @@ class GuildMembersChunkHandler extends AbstractHandler {
 
 module.exports = GuildMembersChunkHandler;
 
-},{"../../../../util/Constants":207,"./AbstractHandler":120}],135:[function(require,module,exports){
+},{"../../../../util/Constants":209,"./AbstractHandler":122}],137:[function(require,module,exports){
 const AbstractHandler = require('./AbstractHandler');
 
 class GuildRoleCreateHandler extends AbstractHandler {
@@ -21828,7 +21846,7 @@ class GuildRoleCreateHandler extends AbstractHandler {
 
 module.exports = GuildRoleCreateHandler;
 
-},{"./AbstractHandler":120}],136:[function(require,module,exports){
+},{"./AbstractHandler":122}],138:[function(require,module,exports){
 const AbstractHandler = require('./AbstractHandler');
 
 class GuildRoleDeleteHandler extends AbstractHandler {
@@ -21841,7 +21859,7 @@ class GuildRoleDeleteHandler extends AbstractHandler {
 
 module.exports = GuildRoleDeleteHandler;
 
-},{"./AbstractHandler":120}],137:[function(require,module,exports){
+},{"./AbstractHandler":122}],139:[function(require,module,exports){
 const AbstractHandler = require('./AbstractHandler');
 
 class GuildRoleUpdateHandler extends AbstractHandler {
@@ -21854,7 +21872,7 @@ class GuildRoleUpdateHandler extends AbstractHandler {
 
 module.exports = GuildRoleUpdateHandler;
 
-},{"./AbstractHandler":120}],138:[function(require,module,exports){
+},{"./AbstractHandler":122}],140:[function(require,module,exports){
 const AbstractHandler = require('./AbstractHandler');
 
 class GuildSyncHandler extends AbstractHandler {
@@ -21867,7 +21885,7 @@ class GuildSyncHandler extends AbstractHandler {
 
 module.exports = GuildSyncHandler;
 
-},{"./AbstractHandler":120}],139:[function(require,module,exports){
+},{"./AbstractHandler":122}],141:[function(require,module,exports){
 const AbstractHandler = require('./AbstractHandler');
 
 class GuildUpdateHandler extends AbstractHandler {
@@ -21880,7 +21898,7 @@ class GuildUpdateHandler extends AbstractHandler {
 
 module.exports = GuildUpdateHandler;
 
-},{"./AbstractHandler":120}],140:[function(require,module,exports){
+},{"./AbstractHandler":122}],142:[function(require,module,exports){
 const AbstractHandler = require('./AbstractHandler');
 const Constants = require('../../../../util/Constants');
 
@@ -21901,7 +21919,7 @@ class MessageCreateHandler extends AbstractHandler {
 
 module.exports = MessageCreateHandler;
 
-},{"../../../../util/Constants":207,"./AbstractHandler":120}],141:[function(require,module,exports){
+},{"../../../../util/Constants":209,"./AbstractHandler":122}],143:[function(require,module,exports){
 const AbstractHandler = require('./AbstractHandler');
 const Constants = require('../../../../util/Constants');
 
@@ -21922,7 +21940,7 @@ class MessageDeleteHandler extends AbstractHandler {
 
 module.exports = MessageDeleteHandler;
 
-},{"../../../../util/Constants":207,"./AbstractHandler":120}],142:[function(require,module,exports){
+},{"../../../../util/Constants":209,"./AbstractHandler":122}],144:[function(require,module,exports){
 const AbstractHandler = require('./AbstractHandler');
 
 class MessageDeleteBulkHandler extends AbstractHandler {
@@ -21941,7 +21959,7 @@ class MessageDeleteBulkHandler extends AbstractHandler {
 
 module.exports = MessageDeleteBulkHandler;
 
-},{"./AbstractHandler":120}],143:[function(require,module,exports){
+},{"./AbstractHandler":122}],145:[function(require,module,exports){
 const AbstractHandler = require('./AbstractHandler');
 
 class MessageReactionAddHandler extends AbstractHandler {
@@ -21954,7 +21972,7 @@ class MessageReactionAddHandler extends AbstractHandler {
 
 module.exports = MessageReactionAddHandler;
 
-},{"./AbstractHandler":120}],144:[function(require,module,exports){
+},{"./AbstractHandler":122}],146:[function(require,module,exports){
 const AbstractHandler = require('./AbstractHandler');
 
 class MessageReactionRemove extends AbstractHandler {
@@ -21967,7 +21985,7 @@ class MessageReactionRemove extends AbstractHandler {
 
 module.exports = MessageReactionRemove;
 
-},{"./AbstractHandler":120}],145:[function(require,module,exports){
+},{"./AbstractHandler":122}],147:[function(require,module,exports){
 const AbstractHandler = require('./AbstractHandler');
 
 class MessageReactionRemoveAll extends AbstractHandler {
@@ -21980,7 +21998,7 @@ class MessageReactionRemoveAll extends AbstractHandler {
 
 module.exports = MessageReactionRemoveAll;
 
-},{"./AbstractHandler":120}],146:[function(require,module,exports){
+},{"./AbstractHandler":122}],148:[function(require,module,exports){
 const AbstractHandler = require('./AbstractHandler');
 
 class MessageUpdateHandler extends AbstractHandler {
@@ -21993,7 +22011,7 @@ class MessageUpdateHandler extends AbstractHandler {
 
 module.exports = MessageUpdateHandler;
 
-},{"./AbstractHandler":120}],147:[function(require,module,exports){
+},{"./AbstractHandler":122}],149:[function(require,module,exports){
 const AbstractHandler = require('./AbstractHandler');
 const Constants = require('../../../../util/Constants');
 const Util = require('../../../../util/Util');
@@ -22071,7 +22089,7 @@ class PresenceUpdateHandler extends AbstractHandler {
 
 module.exports = PresenceUpdateHandler;
 
-},{"../../../../util/Constants":207,"../../../../util/Util":210,"./AbstractHandler":120}],148:[function(require,module,exports){
+},{"../../../../util/Constants":209,"../../../../util/Util":212,"./AbstractHandler":122}],150:[function(require,module,exports){
 const AbstractHandler = require('./AbstractHandler');
 
 const ClientUser = require('../../../../structures/ClientUser');
@@ -22156,7 +22174,7 @@ class ReadyHandler extends AbstractHandler {
 
 module.exports = ReadyHandler;
 
-},{"../../../../structures/ClientUser":167,"./AbstractHandler":120}],149:[function(require,module,exports){
+},{"../../../../structures/ClientUser":169,"./AbstractHandler":122}],151:[function(require,module,exports){
 const AbstractHandler = require('./AbstractHandler');
 
 class RelationshipAddHandler extends AbstractHandler {
@@ -22177,7 +22195,7 @@ class RelationshipAddHandler extends AbstractHandler {
 
 module.exports = RelationshipAddHandler;
 
-},{"./AbstractHandler":120}],150:[function(require,module,exports){
+},{"./AbstractHandler":122}],152:[function(require,module,exports){
 const AbstractHandler = require('./AbstractHandler');
 
 class RelationshipRemoveHandler extends AbstractHandler {
@@ -22198,7 +22216,7 @@ class RelationshipRemoveHandler extends AbstractHandler {
 
 module.exports = RelationshipRemoveHandler;
 
-},{"./AbstractHandler":120}],151:[function(require,module,exports){
+},{"./AbstractHandler":122}],153:[function(require,module,exports){
 const AbstractHandler = require('./AbstractHandler');
 const Constants = require('../../../../util/Constants');
 
@@ -22228,7 +22246,7 @@ class ResumedHandler extends AbstractHandler {
 
 module.exports = ResumedHandler;
 
-},{"../../../../util/Constants":207,"./AbstractHandler":120}],152:[function(require,module,exports){
+},{"../../../../util/Constants":209,"./AbstractHandler":122}],154:[function(require,module,exports){
 const AbstractHandler = require('./AbstractHandler');
 const Constants = require('../../../../util/Constants');
 
@@ -22298,7 +22316,7 @@ function tooLate(channel, user) {
 
 module.exports = TypingStartHandler;
 
-},{"../../../../util/Constants":207,"./AbstractHandler":120}],153:[function(require,module,exports){
+},{"../../../../util/Constants":209,"./AbstractHandler":122}],155:[function(require,module,exports){
 const AbstractHandler = require('./AbstractHandler');
 const Constants = require('../../../../util/Constants');
 const ClientUserGuildSettings = require('../../../../structures/ClientUserGuildSettings');
@@ -22321,7 +22339,7 @@ class UserGuildSettingsUpdateHandler extends AbstractHandler {
 
 module.exports = UserGuildSettingsUpdateHandler;
 
-},{"../../../../structures/ClientUserGuildSettings":169,"../../../../util/Constants":207,"./AbstractHandler":120}],154:[function(require,module,exports){
+},{"../../../../structures/ClientUserGuildSettings":171,"../../../../util/Constants":209,"./AbstractHandler":122}],156:[function(require,module,exports){
 const AbstractHandler = require('./AbstractHandler');
 
 class UserNoteUpdateHandler extends AbstractHandler {
@@ -22335,7 +22353,7 @@ class UserNoteUpdateHandler extends AbstractHandler {
 
 module.exports = UserNoteUpdateHandler;
 
-},{"./AbstractHandler":120}],155:[function(require,module,exports){
+},{"./AbstractHandler":122}],157:[function(require,module,exports){
 const AbstractHandler = require('./AbstractHandler');
 const Constants = require('../../../../util/Constants');
 
@@ -22355,7 +22373,7 @@ class UserSettingsUpdateHandler extends AbstractHandler {
 
 module.exports = UserSettingsUpdateHandler;
 
-},{"../../../../util/Constants":207,"./AbstractHandler":120}],156:[function(require,module,exports){
+},{"../../../../util/Constants":209,"./AbstractHandler":122}],158:[function(require,module,exports){
 const AbstractHandler = require('./AbstractHandler');
 
 class UserUpdateHandler extends AbstractHandler {
@@ -22368,7 +22386,7 @@ class UserUpdateHandler extends AbstractHandler {
 
 module.exports = UserUpdateHandler;
 
-},{"./AbstractHandler":120}],157:[function(require,module,exports){
+},{"./AbstractHandler":122}],159:[function(require,module,exports){
 const AbstractHandler = require('./AbstractHandler');
 
 /*
@@ -22389,7 +22407,7 @@ class VoiceServerUpdate extends AbstractHandler {
 
 module.exports = VoiceServerUpdate;
 
-},{"./AbstractHandler":120}],158:[function(require,module,exports){
+},{"./AbstractHandler":122}],160:[function(require,module,exports){
 const AbstractHandler = require('./AbstractHandler');
 
 const Constants = require('../../../../util/Constants');
@@ -22443,7 +22461,7 @@ class VoiceStateUpdateHandler extends AbstractHandler {
 
 module.exports = VoiceStateUpdateHandler;
 
-},{"../../../../util/Constants":207,"../../../../util/Util":210,"./AbstractHandler":120}],159:[function(require,module,exports){
+},{"../../../../util/Constants":209,"../../../../util/Util":212,"./AbstractHandler":122}],161:[function(require,module,exports){
 const AbstractHandler = require('./AbstractHandler');
 const { Events } = require('../../../../util/Constants');
 
@@ -22464,7 +22482,7 @@ class WebhooksUpdate extends AbstractHandler {
 
 module.exports = WebhooksUpdate;
 
-},{"../../../../util/Constants":207,"./AbstractHandler":120}],160:[function(require,module,exports){
+},{"../../../../util/Constants":209,"./AbstractHandler":122}],162:[function(require,module,exports){
 const Util = require('./util/Util');
 
 module.exports = {
@@ -22532,7 +22550,7 @@ module.exports = {
   Webhook: require('./structures/Webhook'),
 };
 
-},{"../package":57,"./client/Client":58,"./client/WebhookClient":62,"./client/rest/DiscordAPIError":94,"./sharding/Shard":161,"./sharding/ShardClientUtil":162,"./sharding/ShardingManager":163,"./structures/Attachment":164,"./structures/CategoryChannel":165,"./structures/Channel":166,"./structures/ClientUser":167,"./structures/ClientUserSettings":170,"./structures/DMChannel":171,"./structures/Emoji":172,"./structures/GroupDMChannel":173,"./structures/Guild":174,"./structures/GuildAuditLogs":175,"./structures/GuildChannel":176,"./structures/GuildMember":177,"./structures/Invite":178,"./structures/Message":179,"./structures/MessageAttachment":180,"./structures/MessageCollector":181,"./structures/MessageEmbed":182,"./structures/MessageMentions":183,"./structures/MessageReaction":184,"./structures/NewsChannel":185,"./structures/OAuth2Application":186,"./structures/PartialGuild":187,"./structures/PartialGuildChannel":188,"./structures/PermissionOverwrites":189,"./structures/Presence":190,"./structures/ReactionCollector":191,"./structures/ReactionEmoji":192,"./structures/RichEmbed":193,"./structures/Role":194,"./structures/StoreChannel":195,"./structures/TextChannel":196,"./structures/User":197,"./structures/VoiceChannel":200,"./structures/Webhook":202,"./structures/interfaces/Collector":203,"./util/Collection":206,"./util/Constants":207,"./util/Permissions":208,"./util/Snowflake":209,"./util/Util":210}],161:[function(require,module,exports){
+},{"../package":59,"./client/Client":60,"./client/WebhookClient":64,"./client/rest/DiscordAPIError":96,"./sharding/Shard":163,"./sharding/ShardClientUtil":164,"./sharding/ShardingManager":165,"./structures/Attachment":166,"./structures/CategoryChannel":167,"./structures/Channel":168,"./structures/ClientUser":169,"./structures/ClientUserSettings":172,"./structures/DMChannel":173,"./structures/Emoji":174,"./structures/GroupDMChannel":175,"./structures/Guild":176,"./structures/GuildAuditLogs":177,"./structures/GuildChannel":178,"./structures/GuildMember":179,"./structures/Invite":180,"./structures/Message":181,"./structures/MessageAttachment":182,"./structures/MessageCollector":183,"./structures/MessageEmbed":184,"./structures/MessageMentions":185,"./structures/MessageReaction":186,"./structures/NewsChannel":187,"./structures/OAuth2Application":188,"./structures/PartialGuild":189,"./structures/PartialGuildChannel":190,"./structures/PermissionOverwrites":191,"./structures/Presence":192,"./structures/ReactionCollector":193,"./structures/ReactionEmoji":194,"./structures/RichEmbed":195,"./structures/Role":196,"./structures/StoreChannel":197,"./structures/TextChannel":198,"./structures/User":199,"./structures/VoiceChannel":202,"./structures/Webhook":204,"./structures/interfaces/Collector":205,"./util/Collection":208,"./util/Constants":209,"./util/Permissions":210,"./util/Snowflake":211,"./util/Util":212}],163:[function(require,module,exports){
 (function (process){
 const childProcess = require('child_process');
 const EventEmitter = require('events');
@@ -22818,7 +22836,7 @@ class Shard extends EventEmitter {
 module.exports = Shard;
 
 }).call(this,require('_process'))
-},{"../util/Util":210,"_process":32,"child_process":1,"events":12,"path":30}],162:[function(require,module,exports){
+},{"../util/Util":212,"_process":32,"child_process":1,"events":12,"path":30}],164:[function(require,module,exports){
 (function (process){
 const Util = require('../util/Util');
 
@@ -22968,7 +22986,7 @@ class ShardClientUtil {
 module.exports = ShardClientUtil;
 
 }).call(this,require('_process'))
-},{"../util/Util":210,"_process":32}],163:[function(require,module,exports){
+},{"../util/Util":212,"_process":32}],165:[function(require,module,exports){
 (function (process){
 const path = require('path');
 const fs = require('fs');
@@ -23192,7 +23210,7 @@ class ShardingManager extends EventEmitter {
 module.exports = ShardingManager;
 
 }).call(this,require('_process'))
-},{"../util/Collection":206,"../util/Util":210,"./Shard":161,"_process":32,"events":12,"fs":1,"path":30}],164:[function(require,module,exports){
+},{"../util/Collection":208,"../util/Util":212,"./Shard":163,"_process":32,"events":12,"fs":1,"path":30}],166:[function(require,module,exports){
 /**
  * Represents an attachment in a message.
  * @param {BufferResolvable|Stream} file The file
@@ -23269,7 +23287,7 @@ class Attachment {
 
 module.exports = Attachment;
 
-},{}],165:[function(require,module,exports){
+},{}],167:[function(require,module,exports){
 const GuildChannel = require('./GuildChannel');
 
 /**
@@ -23293,7 +23311,7 @@ class CategoryChannel extends GuildChannel {
 
 module.exports = CategoryChannel;
 
-},{"./GuildChannel":176}],166:[function(require,module,exports){
+},{"./GuildChannel":178}],168:[function(require,module,exports){
 const Snowflake = require('../util/Snowflake');
 
 /**
@@ -23373,7 +23391,7 @@ class Channel {
 
 module.exports = Channel;
 
-},{"../util/Snowflake":209}],167:[function(require,module,exports){
+},{"../util/Snowflake":211}],169:[function(require,module,exports){
 const User = require('./User');
 const Collection = require('../util/Collection');
 const ClientUserSettings = require('./ClientUserSettings');
@@ -23822,7 +23840,7 @@ ClientUser.prototype.fetchMentions =
 
 module.exports = ClientUser;
 
-},{"../util/Collection":206,"../util/Constants":207,"./ClientUserGuildSettings":169,"./ClientUserSettings":170,"./User":197,"util":56}],168:[function(require,module,exports){
+},{"../util/Collection":208,"../util/Constants":209,"./ClientUserGuildSettings":171,"./ClientUserSettings":172,"./User":199,"util":56}],170:[function(require,module,exports){
 const Constants = require('../util/Constants');
 
 /**
@@ -23854,7 +23872,7 @@ class ClientUserChannelOverride {
 
 module.exports = ClientUserChannelOverride;
 
-},{"../util/Constants":207}],169:[function(require,module,exports){
+},{"../util/Constants":209}],171:[function(require,module,exports){
 const Constants = require('../util/Constants');
 const Collection = require('../util/Collection');
 const ClientUserChannelOverride = require('./ClientUserChannelOverride');
@@ -23916,7 +23934,7 @@ class ClientUserGuildSettings {
 
 module.exports = ClientUserGuildSettings;
 
-},{"../util/Collection":206,"../util/Constants":207,"./ClientUserChannelOverride":168}],170:[function(require,module,exports){
+},{"../util/Collection":208,"../util/Constants":209,"./ClientUserChannelOverride":170}],172:[function(require,module,exports){
 const Constants = require('../util/Constants');
 const Util = require('../util/Util');
 
@@ -23998,7 +24016,7 @@ class ClientUserSettings {
 
 module.exports = ClientUserSettings;
 
-},{"../util/Constants":207,"../util/Util":210}],171:[function(require,module,exports){
+},{"../util/Constants":209,"../util/Util":212}],173:[function(require,module,exports){
 const Channel = require('./Channel');
 const TextBasedChannel = require('./interfaces/TextBasedChannel');
 const Collection = require('../util/Collection');
@@ -24076,7 +24094,7 @@ TextBasedChannel.applyToClass(DMChannel, true, ['bulkDelete']);
 
 module.exports = DMChannel;
 
-},{"../util/Collection":206,"./Channel":166,"./interfaces/TextBasedChannel":204}],172:[function(require,module,exports){
+},{"../util/Collection":208,"./Channel":168,"./interfaces/TextBasedChannel":206}],174:[function(require,module,exports){
 const Constants = require('../util/Constants');
 const Collection = require('../util/Collection');
 const Permissions = require('../util/Permissions');
@@ -24334,7 +24352,7 @@ class Emoji {
 
 module.exports = Emoji;
 
-},{"../util/Collection":206,"../util/Constants":207,"../util/Permissions":208,"../util/Snowflake":209}],173:[function(require,module,exports){
+},{"../util/Collection":208,"../util/Constants":209,"../util/Permissions":210,"../util/Snowflake":211}],175:[function(require,module,exports){
 const Channel = require('./Channel');
 const TextBasedChannel = require('./interfaces/TextBasedChannel');
 const Collection = require('../util/Collection');
@@ -24582,7 +24600,7 @@ TextBasedChannel.applyToClass(GroupDMChannel, true, ['bulkDelete']);
 
 module.exports = GroupDMChannel;
 
-},{"../util/Collection":206,"../util/Constants":207,"./Channel":166,"./interfaces/TextBasedChannel":204}],174:[function(require,module,exports){
+},{"../util/Collection":208,"../util/Constants":209,"./Channel":168,"./interfaces/TextBasedChannel":206}],176:[function(require,module,exports){
 (function (process){
 const util = require('util');
 const Long = require('long');
@@ -26047,7 +26065,7 @@ Guild.prototype.sync =
 module.exports = Guild;
 
 }).call(this,require('_process'))
-},{"../util/Collection":206,"../util/Constants":207,"../util/Snowflake":209,"../util/Util":210,"./Emoji":172,"./GuildMember":177,"./Presence":190,"./Role":194,"./User":197,"_process":32,"long":211,"util":56}],175:[function(require,module,exports){
+},{"../util/Collection":208,"../util/Constants":209,"../util/Snowflake":211,"../util/Util":212,"./Emoji":174,"./GuildMember":179,"./Presence":192,"./Role":196,"./User":199,"_process":32,"long":213,"util":56}],177:[function(require,module,exports){
 const Collection = require('../util/Collection');
 const Snowflake = require('../util/Snowflake');
 const Webhook = require('./Webhook');
@@ -26420,7 +26438,7 @@ GuildAuditLogs.Entry = GuildAuditLogsEntry;
 
 module.exports = GuildAuditLogs;
 
-},{"../util/Collection":206,"../util/Snowflake":209,"./Invite":178,"./Webhook":202}],176:[function(require,module,exports){
+},{"../util/Collection":208,"../util/Snowflake":211,"./Invite":180,"./Webhook":204}],178:[function(require,module,exports){
 const Channel = require('./Channel');
 const Role = require('./Role');
 const PermissionOverwrites = require('./PermissionOverwrites');
@@ -26959,7 +26977,7 @@ class GuildChannel extends Channel {
 
 module.exports = GuildChannel;
 
-},{"../util/Collection":206,"../util/Constants":207,"../util/Permissions":208,"./Channel":166,"./Invite":178,"./PermissionOverwrites":189,"./Role":194}],177:[function(require,module,exports){
+},{"../util/Collection":208,"../util/Constants":209,"../util/Permissions":210,"./Channel":168,"./Invite":180,"./PermissionOverwrites":191,"./Role":196}],179:[function(require,module,exports){
 const TextBasedChannel = require('./interfaces/TextBasedChannel');
 const Role = require('./Role');
 const Permissions = require('../util/Permissions');
@@ -27574,7 +27592,7 @@ GuildMember.prototype.missingPermissions = util.deprecate(GuildMember.prototype.
 
 module.exports = GuildMember;
 
-},{"../util/Collection":206,"../util/Permissions":208,"./Presence":190,"./Role":194,"./interfaces/TextBasedChannel":204,"util":56}],178:[function(require,module,exports){
+},{"../util/Collection":208,"../util/Permissions":210,"./Presence":192,"./Role":196,"./interfaces/TextBasedChannel":206,"util":56}],180:[function(require,module,exports){
 const PartialGuild = require('./PartialGuild');
 const PartialGuildChannel = require('./PartialGuildChannel');
 const Constants = require('../util/Constants');
@@ -27740,7 +27758,7 @@ class Invite {
 
 module.exports = Invite;
 
-},{"../util/Constants":207,"./PartialGuild":187,"./PartialGuildChannel":188}],179:[function(require,module,exports){
+},{"../util/Constants":209,"./PartialGuild":189,"./PartialGuildChannel":190}],181:[function(require,module,exports){
 const Mentions = require('./MessageMentions');
 const Attachment = require('./MessageAttachment');
 const Embed = require('./MessageEmbed');
@@ -28347,7 +28365,7 @@ class Message {
 
 module.exports = Message;
 
-},{"../util/Collection":206,"../util/Constants":207,"../util/Permissions":208,"../util/Util":210,"./GuildMember":177,"./MessageAttachment":180,"./MessageEmbed":182,"./MessageMentions":183,"./MessageReaction":184,"./ReactionCollector":191,"./RichEmbed":193}],180:[function(require,module,exports){
+},{"../util/Collection":208,"../util/Constants":209,"../util/Permissions":210,"../util/Util":212,"./GuildMember":179,"./MessageAttachment":182,"./MessageEmbed":184,"./MessageMentions":185,"./MessageReaction":186,"./ReactionCollector":193,"./RichEmbed":195}],182:[function(require,module,exports){
 /**
  * Represents an attachment in a message.
  */
@@ -28417,7 +28435,7 @@ class MessageAttachment {
 
 module.exports = MessageAttachment;
 
-},{}],181:[function(require,module,exports){
+},{}],183:[function(require,module,exports){
 const Collector = require('./interfaces/Collector');
 const util = require('util');
 
@@ -28519,7 +28537,7 @@ class MessageCollector extends Collector {
 
 module.exports = MessageCollector;
 
-},{"./interfaces/Collector":203,"util":56}],182:[function(require,module,exports){
+},{"./interfaces/Collector":205,"util":56}],184:[function(require,module,exports){
 /**
  * Represents an embed in a message (image/video preview, rich embed, etc.)
  * <info>This class is only used for *received* embeds. If you wish to send one, use the {@link RichEmbed} class.</info>
@@ -28907,7 +28925,7 @@ MessageEmbed.Footer = MessageEmbedFooter;
 
 module.exports = MessageEmbed;
 
-},{}],183:[function(require,module,exports){
+},{}],185:[function(require,module,exports){
 const Collection = require('../util/Collection');
 
 /**
@@ -29053,7 +29071,7 @@ MessageMentions.CHANNELS_PATTERN = /<#([0-9]+)>/g;
 
 module.exports = MessageMentions;
 
-},{"../util/Collection":206}],184:[function(require,module,exports){
+},{"../util/Collection":208}],186:[function(require,module,exports){
 const Collection = require('../util/Collection');
 const Emoji = require('./Emoji');
 const ReactionEmoji = require('./ReactionEmoji');
@@ -29151,7 +29169,7 @@ class MessageReaction {
 
 module.exports = MessageReaction;
 
-},{"../util/Collection":206,"./Emoji":172,"./ReactionEmoji":192}],185:[function(require,module,exports){
+},{"../util/Collection":208,"./Emoji":174,"./ReactionEmoji":194}],187:[function(require,module,exports){
 const TextChannel = require('./TextChannel');
 
 /**
@@ -29177,7 +29195,7 @@ class NewsChannel extends TextChannel {
 
 module.exports = NewsChannel;
 
-},{"./TextChannel":196}],186:[function(require,module,exports){
+},{"./TextChannel":198}],188:[function(require,module,exports){
 const Snowflake = require('../util/Snowflake');
 const util = require('util');
 
@@ -29327,7 +29345,7 @@ OAuth2Application.prototype.reset =
 
 module.exports = OAuth2Application;
 
-},{"../util/Snowflake":209,"util":56}],187:[function(require,module,exports){
+},{"../util/Snowflake":211,"util":56}],189:[function(require,module,exports){
 /*
 { splash: null,
      id: '123123123',
@@ -29380,7 +29398,7 @@ class PartialGuild {
 
 module.exports = PartialGuild;
 
-},{}],188:[function(require,module,exports){
+},{}],190:[function(require,module,exports){
 const Constants = require('../util/Constants');
 
 /*
@@ -29426,7 +29444,7 @@ class PartialGuildChannel {
 
 module.exports = PartialGuildChannel;
 
-},{"../util/Constants":207}],189:[function(require,module,exports){
+},{"../util/Constants":209}],191:[function(require,module,exports){
 const Permissions = require('../util/Permissions');
 
 /**
@@ -29497,7 +29515,7 @@ class PermissionOverwrites {
 
 module.exports = PermissionOverwrites;
 
-},{"../util/Permissions":208}],190:[function(require,module,exports){
+},{"../util/Permissions":210}],192:[function(require,module,exports){
 const { ActivityFlags, Endpoints } = require('../util/Constants');
 
 /**
@@ -29740,7 +29758,7 @@ exports.Presence = Presence;
 exports.Game = Game;
 exports.RichPresenceAssets = RichPresenceAssets;
 
-},{"../util/Constants":207}],191:[function(require,module,exports){
+},{"../util/Constants":209}],193:[function(require,module,exports){
 const Collector = require('./interfaces/Collector');
 const Collection = require('../util/Collection');
 
@@ -29827,7 +29845,7 @@ class ReactionCollector extends Collector {
 
 module.exports = ReactionCollector;
 
-},{"../util/Collection":206,"./interfaces/Collector":203}],192:[function(require,module,exports){
+},{"../util/Collection":208,"./interfaces/Collector":205}],194:[function(require,module,exports){
 /**
  * Represents a limited emoji set used for both custom and unicode emojis. Custom emojis
  * will use this class opposed to the Emoji class when the client doesn't know enough
@@ -29878,7 +29896,7 @@ class ReactionEmoji {
 
 module.exports = ReactionEmoji;
 
-},{}],193:[function(require,module,exports){
+},{}],195:[function(require,module,exports){
 const Attachment = require('./Attachment');
 const MessageEmbed = require('./MessageEmbed');
 let ClientDataResolver;
@@ -30175,7 +30193,7 @@ function resolveString(data) {
   return String(data);
 }
 
-},{"../client/ClientDataResolver":60,"./Attachment":164,"./MessageEmbed":182}],194:[function(require,module,exports){
+},{"../client/ClientDataResolver":62,"./Attachment":166,"./MessageEmbed":184}],196:[function(require,module,exports){
 const Snowflake = require('../util/Snowflake');
 const Permissions = require('../util/Permissions');
 const util = require('util');
@@ -30553,7 +30571,7 @@ Role.prototype.hasPermissions = util
 
 module.exports = Role;
 
-},{"../util/Permissions":208,"../util/Snowflake":209,"util":56}],195:[function(require,module,exports){
+},{"../util/Permissions":210,"../util/Snowflake":211,"util":56}],197:[function(require,module,exports){
 const GuildChannel = require('./GuildChannel');
 
 /**
@@ -30580,7 +30598,7 @@ class StoreChannel extends GuildChannel {
 
 module.exports = StoreChannel;
 
-},{"./GuildChannel":176}],196:[function(require,module,exports){
+},{"./GuildChannel":178}],198:[function(require,module,exports){
 const GuildChannel = require('./GuildChannel');
 const TextBasedChannel = require('./interfaces/TextBasedChannel');
 const Collection = require('../util/Collection');
@@ -30736,7 +30754,7 @@ TextBasedChannel.applyToClass(TextChannel, true);
 
 module.exports = TextChannel;
 
-},{"../util/Collection":206,"./GuildChannel":176,"./interfaces/TextBasedChannel":204}],197:[function(require,module,exports){
+},{"../util/Collection":208,"./GuildChannel":178,"./interfaces/TextBasedChannel":206}],199:[function(require,module,exports){
 const TextBasedChannel = require('./interfaces/TextBasedChannel');
 const Constants = require('../util/Constants');
 const Presence = require('./Presence').Presence;
@@ -31067,7 +31085,7 @@ User.prototype.fetchProfile =
 
 module.exports = User;
 
-},{"../util/Constants":207,"../util/Snowflake":209,"./Presence":190,"./interfaces/TextBasedChannel":204,"util":56}],198:[function(require,module,exports){
+},{"../util/Constants":209,"../util/Snowflake":211,"./Presence":192,"./interfaces/TextBasedChannel":206,"util":56}],200:[function(require,module,exports){
 /**
  * Represents a user connection (or "platform identity").
  */
@@ -31117,7 +31135,7 @@ class UserConnection {
 
 module.exports = UserConnection;
 
-},{}],199:[function(require,module,exports){
+},{}],201:[function(require,module,exports){
 const Collection = require('../util/Collection');
 const UserConnection = require('./UserConnection');
 
@@ -31181,7 +31199,7 @@ class UserProfile {
 
 module.exports = UserProfile;
 
-},{"../util/Collection":206,"./UserConnection":198}],200:[function(require,module,exports){
+},{"../util/Collection":208,"./UserConnection":200}],202:[function(require,module,exports){
 const GuildChannel = require('./GuildChannel');
 const Collection = require('../util/Collection');
 const Permissions = require('../util/Permissions');
@@ -31329,7 +31347,7 @@ class VoiceChannel extends GuildChannel {
 
 module.exports = VoiceChannel;
 
-},{"../util/Collection":206,"../util/Permissions":208,"./GuildChannel":176}],201:[function(require,module,exports){
+},{"../util/Collection":208,"../util/Permissions":210,"./GuildChannel":178}],203:[function(require,module,exports){
 /**
  * Represents a Discord voice region for guilds.
  */
@@ -31381,7 +31399,7 @@ class VoiceRegion {
 
 module.exports = VoiceRegion;
 
-},{}],202:[function(require,module,exports){
+},{}],204:[function(require,module,exports){
 (function (Buffer){
 const EventEmitter = require('events');
 const path = require('path');
@@ -31689,7 +31707,7 @@ class Webhook extends EventEmitter {
 module.exports = Webhook;
 
 }).call(this,{"isBuffer":require("C:/Users/Maxan/AppData/Roaming/npm/node_modules/browserify/node_modules/is-buffer/index.js")})
-},{"../util/Util":210,"./Attachment":164,"./RichEmbed":193,"C:/Users/Maxan/AppData/Roaming/npm/node_modules/browserify/node_modules/is-buffer/index.js":15,"events":12,"path":30}],203:[function(require,module,exports){
+},{"../util/Util":212,"./Attachment":166,"./RichEmbed":195,"C:/Users/Maxan/AppData/Roaming/npm/node_modules/browserify/node_modules/is-buffer/index.js":15,"events":12,"path":30}],205:[function(require,module,exports){
 const Collection = require('../../util/Collection');
 const EventEmitter = require('events').EventEmitter;
 
@@ -31870,7 +31888,7 @@ class Collector extends EventEmitter {
 
 module.exports = Collector;
 
-},{"../../util/Collection":206,"events":12}],204:[function(require,module,exports){
+},{"../../util/Collection":208,"events":12}],206:[function(require,module,exports){
 (function (Buffer){
 const path = require('path');
 const Message = require('../Message');
@@ -32509,7 +32527,7 @@ TextBasedChannel.prototype.search =
   util.deprecate(TextBasedChannel.prototype.search, 'TextBasedChannel#search: userbot methods will be removed');
 
 }).call(this,{"isBuffer":require("C:/Users/Maxan/AppData/Roaming/npm/node_modules/browserify/node_modules/is-buffer/index.js")})
-},{"../../structures/Attachment":164,"../../structures/RichEmbed":193,"../../util/Collection":206,"../../util/Snowflake":209,"../Message":179,"../MessageCollector":181,"C:/Users/Maxan/AppData/Roaming/npm/node_modules/browserify/node_modules/is-buffer/index.js":15,"path":30,"util":56}],205:[function(require,module,exports){
+},{"../../structures/Attachment":166,"../../structures/RichEmbed":195,"../../util/Collection":208,"../../util/Snowflake":211,"../Message":181,"../MessageCollector":183,"C:/Users/Maxan/AppData/Roaming/npm/node_modules/browserify/node_modules/is-buffer/index.js":15,"path":30,"util":56}],207:[function(require,module,exports){
 const Permissions = require('../../util/Permissions');
 const Collection = require('../../util/Collection');
 
@@ -32537,7 +32555,7 @@ module.exports = function resolvePermissions(overwrites, guild) {
   return overwrites;
 };
 
-},{"../../util/Collection":206,"../../util/Permissions":208}],206:[function(require,module,exports){
+},{"../../util/Collection":208,"../../util/Permissions":210}],208:[function(require,module,exports){
 (function (process){
 const util = require('util');
 
@@ -33073,7 +33091,7 @@ Collection.prototype.findKey = function findKey(propOrFn, value) {
 module.exports = Collection;
 
 }).call(this,require('_process'))
-},{"_process":32,"util":56}],207:[function(require,module,exports){
+},{"_process":32,"util":56}],209:[function(require,module,exports){
 (function (process){
 exports.Package = require('../../package.json');
 
@@ -33922,7 +33940,7 @@ exports.DefaultMessageNotifications = [
 ];
 
 }).call(this,require('_process'))
-},{"../../package.json":57,"_process":32,"os":18}],208:[function(require,module,exports){
+},{"../../package.json":59,"_process":32,"os":18}],210:[function(require,module,exports){
 const Constants = require('../util/Constants');
 const util = require('util');
 
@@ -34230,7 +34248,7 @@ Object.defineProperty(Permissions.prototype, 'member', {
 
 module.exports = Permissions;
 
-},{"../util/Constants":207,"util":56}],209:[function(require,module,exports){
+},{"../util/Constants":209,"util":56}],211:[function(require,module,exports){
 const Long = require('long');
 
 // Discord epoch (2015-01-01T00:00:00.000Z)
@@ -34314,7 +34332,7 @@ function pad(v, n, c = '0') {
 
 module.exports = SnowflakeUtil;
 
-},{"long":211}],210:[function(require,module,exports){
+},{"long":213}],212:[function(require,module,exports){
 (function (Buffer){
 const snekfetch = require('snekfetch');
 const Constants = require('./Constants');
@@ -34539,7 +34557,7 @@ class Util {
 module.exports = Util;
 
 }).call(this,require("buffer").Buffer)
-},{"./Constants":207,"buffer":10,"snekfetch":212}],211:[function(require,module,exports){
+},{"./Constants":209,"buffer":10,"snekfetch":214}],213:[function(require,module,exports){
 module.exports = Long;
 
 /**
@@ -35864,10 +35882,10 @@ Long.fromBytesBE = function fromBytesBE(bytes, unsigned) {
     );
 };
 
-},{}],212:[function(require,module,exports){
+},{}],214:[function(require,module,exports){
 module.exports = require('./src');
 
-},{"./src":214}],213:[function(require,module,exports){
+},{"./src":216}],215:[function(require,module,exports){
 function buildRequest(method, url) {
   return {
     method,
@@ -35905,7 +35923,7 @@ module.exports = {
   FormData: window.FormData,
 };
 
-},{}],214:[function(require,module,exports){
+},{}],216:[function(require,module,exports){
 const browser = typeof window !== 'undefined';
 const querystring = require('querystring');
 const transport = browser ? require('./browser') : require('./node');
@@ -36163,22 +36181,4 @@ module.exports = Snekfetch;
  * @see {@link https://nodejs.org/api/http.html#http_class_http_agent}
  */
 
-},{"./browser":213,"./node":7,"querystring":35}],215:[function(require,module,exports){
-const Discord = require("discord.js");
-const Client = new Discord.Client();
-const Token = require("./utilities.js");
-
-Client.on("ready", () => {
-    Client.user.setStatus('invisible');
-    console.log(Client.user.username);
-    document.getElementById("usersNumber").innerHTML = `<i class="fas fa-check-square"></i> ${Client.users.size} users... and counting!`;
-    document.getElementById("serversNumber").innerHTML = `<i class="fas fa-check-square"></i> ${Client.guilds.size} guilds... and counting!`;
-    document.getElementById("channelsNumber").innerHTML = `<i class="fas fa-check-square"></i> ${Client.channels.size} channels... and counting!`;
-    document.getElementById("emojisNumber").innerHTML = `<i class="fas fa-check-square"></i> ${Client.emojis.size} emojis... and counting!`;
-});
-
-Client.login(Token.token);
-
-},{"./utilities.js":216,"discord.js":160}],216:[function(require,module,exports){
-module.exports.token = "NDk3NDQzMTQ0NjMyMjM4MDkw.XjWBkg.QGZS19SUhJZtOn-MoLc3Ke6VJAE";
-},{}]},{},[215]);
+},{"./browser":215,"./node":7,"querystring":35}]},{},[57]);
