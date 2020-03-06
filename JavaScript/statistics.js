@@ -1,14 +1,8 @@
-const Discord = require("discord.js");
-const Client = new Discord.Client();
-const Token = require("./utilities.js");
+document.getElementById("mangoEmoji").innerHTML = `Here are some stats about Mango... ${twemoji.parse("🥭")}`;
 
-Client.on("ready", () => {
-    Client.user.setStatus('invisible');
-    console.log(Client.user.username);
-    document.getElementById("usersNumber").innerHTML = `<i class="fas fa-check-square"></i> ${Client.users.size} users... and counting!`;
-    document.getElementById("serversNumber").innerHTML = `<i class="fas fa-check-square"></i> ${Client.guilds.size} guilds... and counting!`;
-    document.getElementById("channelsNumber").innerHTML = `<i class="fas fa-check-square"></i> ${Client.channels.size} channels... and counting!`;
-    document.getElementById("emojisNumber").innerHTML = `<i class="fas fa-check-square"></i> ${Client.emojis.size} emojis... and counting!`;
-});
-
-Client.login(Token.token);
+setTimeout(function () {
+    document.getElementById("usersNumber").innerHTML = `<i class="fas fa-check-square"></i> More than <span class="counter">100 users ${twemoji.parse("😯")}`;
+    document.getElementById("serversNumber").innerHTML = `<i class="fas fa-check-square"></i> 10 guilds! ${twemoji.parse("👌🏻")}`;
+    document.getElementById("channelsNumber").innerHTML = `<i class="fas fa-check-square"></i> 300 channels... and counting! ${twemoji.parse("😄")}`;
+    document.getElementById("emojisNumber").innerHTML = `<i class="fas fa-check-square"></i> 150 emojis ${twemoji.parse("❤")}`;
+}, 1500);
