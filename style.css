@@ -95,7 +95,7 @@ a:hover {
     border-radius: 6px;
     padding: 5px;
     display: block;
-    margin-right: 70em;
+    margin-right: 10em;
 }
 
 @media screen and (max-width: 600px) {
@@ -107,8 +107,4 @@ a:hover {
 img.emoji {
     height: 1em;
     width: 1em;
-}
-
-.centeredtext {
-    text-align: center;
 }
